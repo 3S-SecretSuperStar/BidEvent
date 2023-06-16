@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import './App.css';
+import abi from "./utils/WavePortal.json";
 
 const getEthereumObject = () => window.ethereum;
 
@@ -42,6 +43,10 @@ const App = () => {
 
   const [currentAccount, setCurrentAccount] = useState("");
 
+  const contractAddress = "0x3127eD4cB3b7c6f5c299F75d95bB0554E2D7A882";
+
+  const contractABI = abi.abi;
+
   const connectWallet = async () => {
     try {
       const ethereum = getEthereumObject();
@@ -61,15 +66,55 @@ const App = () => {
     }
   };
 
+  const wave = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum); // Changed after update
+        const signer = provider.getSigner();
+        const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);//something wrong with one of these variables
+        let count = await wavePortalContract.getTotalWaves();
+        console.log("Retrieved total wave count...", count.toNumber());
+
+        /*
+        * Execute the actual wave from your smart contract
+        */
+        const waveTxn = await wavePortalContract.wave();
+        console.log("Mining...", waveTxn.hash);
+
+        await waveTxn.wait();
+        console.log("Mined -- ", waveTxn.hash);
+
+        count = await wavePortalContract.getTotalWaves();
+        console.log("Retrieved total wave count...", count.toNumber());
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   /*
    * This runs our function when the page loads.
    * More technically, when the App component "mounts".
    */
-  useEffect(async () => {
-    const account = await findMetaMaskAccount();
-    if (account !== null) {
-      setCurrentAccount(account);
-    }
+  // useEffect(async () => {
+  //   const account = await findMetaMaskAccount();
+  //   if (account !== null) {
+  //     setCurrentAccount(account);
+  //   }
+  // }, []);
+  useEffect(() => {
+    const fetchAccount = async () => {
+      const account = await findMetaMaskAccount();
+      if (account !== null) {
+        setCurrentAccount(account);
+      }
+    };
+  
+    fetchAccount();
   }, []);
 
   return (
@@ -81,10 +126,10 @@ const App = () => {
         </div>
 
         <div className="bio">
-          I'm Matt. Connect you're ETH wallet and wave at me!
+          I'm Vitalik. Connect you're ETH wallet and wave at me!
         </div>
 
-        <button className="waveButton" onClick={null}>
+        <button className="waveButton" onClick={wave}>
           Wave at Me
         </button>
 
