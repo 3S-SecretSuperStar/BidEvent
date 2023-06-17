@@ -5,7 +5,7 @@ const main = async () => {
     console.log("Deploying contracts with account: ", await deployer.getAddress());
     console.log("Account balance: ", accountBalance); // Was .toString(), it's still undefined though
   
-    const waveContractFactory = await hre.ethers.getContractFactory("Wave");
+    const waveContractFactory = await hre.ethers.getContractFactory("WavePortal");
     const waveContract = await waveContractFactory.deploy();
     await waveContract.waitForDeployment();
   
@@ -23,5 +23,5 @@ const main = async () => {
   };
   
   runMain();
-  
+
   // 0x356Dc300afa95dAeA85171fab6D4be7D6A4763EF
