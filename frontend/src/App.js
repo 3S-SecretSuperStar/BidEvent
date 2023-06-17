@@ -43,9 +43,53 @@ const App = () => {
 
   const [currentAccount, setCurrentAccount] = useState("");
 
-  const contractAddress = "0x3127eD4cB3b7c6f5c299F75d95bB0554E2D7A882";
+
+  const [allWaves, setAllWaves] = useState([]);
+  const contractAddress = "0x6234Fe0c5B4Ff8226A9B755A98D42791E3596B2c";
 
   const contractABI = abi.abi;
+
+  /*
+   * Create a method that gets all waves from your contract
+   */
+  const getAllWaves = async () => {
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
+
+        /*
+         * Call the getAllWaves method from your Smart Contract
+         */
+        const waves = await wavePortalContract.getAllWaves();
+
+
+        /*
+         * We only need address, timestamp, and message in our UI so let's
+         * pick those out
+         */
+        let wavesCleaned = [];
+        waves.forEach(wave => {
+          wavesCleaned.push({
+            address: wave.waver,
+            timestamp: new Date(wave.timestamp * 1000),
+            message: wave.message
+          });
+        });
+
+        /*
+         * Store our data in React State
+         */
+        setAllWaves(wavesCleaned);
+      } else {
+        console.log("Ethereum object doesn't exist!")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const connectWallet = async () => {
     try {
@@ -61,6 +105,8 @@ const App = () => {
 
       console.log("Connected", accounts[0]);
       setCurrentAccount(accounts[0]);
+
+      await getAllWaves(); // maybe here
     } catch (error) {
       console.error(error);
     }
@@ -80,7 +126,7 @@ const App = () => {
         /*
         * Execute the actual wave from your smart contract
         */
-        const waveTxn = await wavePortalContract.wave();
+        const waveTxn = await wavePortalContract.wave("Sample message!");
         console.log("Mining...", waveTxn.hash);
 
         await waveTxn.wait();
@@ -122,15 +168,15 @@ const App = () => {
 
       <div className="dataContainer">
         <div className="header">
-        👋 Hey there!
+        ✋ BidBuddy
         </div>
 
         <div className="bio">
-          I'm Vitalik. Connect you're ETH wallet and wave at me!
+          Connect your ETH wallet and bid for a ticket to Devconnect 2023!
         </div>
 
         <button className="waveButton" onClick={wave}>
-          Wave at Me
+          Place a bid
         </button>
 
         {/*
@@ -141,6 +187,15 @@ const App = () => {
             Connect Wallet
           </button>
         )}
+
+        {allWaves.map((wave, index) => {
+          return (
+            <div key={index} style={{ backgroundColor: "OldLace", marginTop: "16px", padding: "8px" }}>
+              <div>Address: {wave.address}</div>
+              <div>Time: {wave.timestamp.toString()}</div>
+              <div>Message: {wave.message}</div>
+            </div>)
+        })}
       </div>
     </div>
   );
