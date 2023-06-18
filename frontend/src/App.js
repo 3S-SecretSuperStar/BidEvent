@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import './App.css';
 import abi from "./utils/WavePortal.json";
+import devconnect from "./devconnect.png";
 
 const getEthereumObject = () => window.ethereum;
 
@@ -42,10 +43,10 @@ const findMetaMaskAccount = async () => {
 const App = () => {
 
   const [currentAccount, setCurrentAccount] = useState("");
-
+  const [message, setMessage] = useState("");
 
   const [allWaves, setAllWaves] = useState([]);
-  const contractAddress = "0x6234Fe0c5B4Ff8226A9B755A98D42791E3596B2c";
+  const contractAddress = "0xb8c692d617Bb63d7FA04abcA92367181E7D747c9";
 
   const contractABI = abi.abi;
 
@@ -112,7 +113,12 @@ const App = () => {
     }
   };
 
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+  };
+
   const wave = async () => {
+    console.log(message);
     try {
       const { ethereum } = window;
 
@@ -175,9 +181,20 @@ const App = () => {
           Connect your ETH wallet and bid for a ticket to Devconnect 2023!
         </div>
 
-        <button className="waveButton" onClick={wave}>
-          Place a bid
-        </button>
+        <div className="inputContainer">
+
+          <img src={devconnect} style={{ borderRadius: '2%' }}/>
+          <textarea
+            type="text"
+            className="messageInput"
+            onChange={handleMessageChange}
+            placeholder="Enter an optional message here :)"
+          />
+
+          <button className="waveButton" onClick={wave}>
+            Place a bid
+          </button>
+        </div>
 
         {/*
          * If there is no currentAccount render this button
@@ -188,6 +205,15 @@ const App = () => {
           </button>
         )}
 
+        {/* <form onSubmit={null}>
+          <input
+            type="text"
+            value={null}
+            onChange={null}
+            placeholder="Type your message here..."
+          />
+        </form> */}        
+      
         {allWaves.map((wave, index) => {
           return (
             <div key={index} style={{ backgroundColor: "OldLace", marginTop: "16px", padding: "8px" }}>
