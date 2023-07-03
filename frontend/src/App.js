@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import './App.css';
-import abi from "./utils/WavePortal.json";
+import abi from "./utils/BidContract.json";
 import devconnect from "./devconnect.png";
 
 const getEthereumObject = () => window.ethereum;
@@ -45,45 +45,42 @@ const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [message, setMessage] = useState("");
 
-  const [allWaves, setAllWaves] = useState([]);
-  const contractAddress = "0xb8c692d617Bb63d7FA04abcA92367181E7D747c9";
+  const [allBids, setAllBids] = useState([]);
+  const contractAddress = "0x7D4fF8648F1C58661BAa36EC5cb5E82386040921";
 
   const contractABI = abi.abi;
 
   /*
-   * Create a method that gets all waves from your contract
+   * Create a method that gets all bids from your contract
    */
-  const getAllWaves = async () => {
+  const getAllBids = async () => {
     try {
       const { ethereum } = window;
       if (ethereum) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
+        const bidContract = new ethers.Contract(contractAddress, contractABI, signer);
 
-        /*
-         * Call the getAllWaves method from your Smart Contract
-         */
-        const waves = await wavePortalContract.getAllWaves();
-
+        // Call getAllBids method from smart contract
+        const bids = await bidContract.getAllBids();
 
         /*
          * We only need address, timestamp, and message in our UI so let's
          * pick those out
          */
-        let wavesCleaned = [];
-        waves.forEach(wave => {
-          wavesCleaned.push({
-            address: wave.waver,
-            timestamp: new Date(wave.timestamp * 1000),
-            message: wave.message
+        let bidsCleaned = [];
+        bids.forEach(bid => {
+          bidsCleaned.push({
+            address: bid.bidder,
+            timestamp: new Date(bid.timestamp * 1000),
+            message: bid.message
           });
         });
 
         /*
          * Store our data in React State
          */
-        setAllWaves(wavesCleaned);
+        setAllBids(bidsCleaned);
       } else {
         console.log("Ethereum object doesn't exist!")
       }
@@ -107,7 +104,7 @@ const App = () => {
       console.log("Connected", accounts[0]);
       setCurrentAccount(accounts[0]);
 
-      await getAllWaves(); // maybe here
+      await getAllBids();
     } catch (error) {
       console.error(error);
     }
@@ -117,7 +114,7 @@ const App = () => {
     setMessage(event.target.value);
   };
 
-  const wave = async () => {
+  const bid = async () => {
     console.log(message);
     try {
       const { ethereum } = window;
@@ -125,21 +122,21 @@ const App = () => {
       if (ethereum) {
         const provider = new ethers.providers.Web3Provider(ethereum); // Changed after update
         const signer = provider.getSigner();
-        const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);//something wrong with one of these variables
-        let count = await wavePortalContract.getTotalWaves();
-        console.log("Retrieved total wave count...", count.toNumber());
+        const bidContract = new ethers.Contract(contractAddress, contractABI, signer);//something wrong with one of these variables
+        let count = await bidContract.getTotalBids();
+        console.log("Retrieved total bid count...", count.toNumber());
 
         /*
-        * Execute the actual wave from your smart contract
+        * Execute the actual bid from your smart contract
         */
-        const waveTxn = await wavePortalContract.wave("Sample message!");
-        console.log("Mining...", waveTxn.hash);
+        const bidTxn = await bidContract.bid("Sample message!");
+        console.log("Mining...", bidTxn.hash);
 
-        await waveTxn.wait();
-        console.log("Mined -- ", waveTxn.hash);
+        await bidTxn.wait();
+        console.log("Mined -- ", bidTxn.hash);
 
-        count = await wavePortalContract.getTotalWaves();
-        console.log("Retrieved total wave count...", count.toNumber());
+        count = await bidContract.getTotalBids();
+        console.log("Retrieved total bid count...", count.toNumber());
       } else {
         console.log("Ethereum object doesn't exist!");
       }
@@ -191,7 +188,7 @@ const App = () => {
             placeholder="Enter an optional message here :)"
           />
 
-          <button className="waveButton" onClick={wave}>
+          <button className="bidButton" onClick={bid}>
             Place a bid
           </button>
         </div>
@@ -200,26 +197,17 @@ const App = () => {
          * If there is no currentAccount render this button
          */}
         {!currentAccount && (
-          <button className="waveButton" onClick={connectWallet}>
+          <button className="bidButton" onClick={connectWallet}>
             Connect Wallet
           </button>
-        )}
-
-        {/* <form onSubmit={null}>
-          <input
-            type="text"
-            value={null}
-            onChange={null}
-            placeholder="Type your message here..."
-          />
-        </form> */}        
+        )}     
       
-        {allWaves.map((wave, index) => {
+        {allBids.map((bid, index) => {
           return (
             <div key={index} style={{ backgroundColor: "OldLace", marginTop: "16px", padding: "8px" }}>
-              <div>Address: {wave.address}</div>
-              <div>Time: {wave.timestamp.toString()}</div>
-              <div>Message: {wave.message}</div>
+              <div>Address: {bid.address}</div>
+              <div>Time: {bid.timestamp.toString()}</div>
+              <div>Message: {bid.message}</div>
             </div>)
         })}
       </div>
