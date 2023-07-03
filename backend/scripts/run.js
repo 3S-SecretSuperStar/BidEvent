@@ -1,24 +1,24 @@
 const main = async () => {
-  // const [owner, randomPerson] = await hre.ethers.getSigners();
-  const waveContractFactory = await hre.ethers.getContractFactory("WavePortal");
-  const waveContract = await waveContractFactory.deploy();
-  await waveContract.waitForDeployment();
-  console.log("Contract address: ", await waveContract.getAddress())
+  const bidContractFactory = await hre.ethers.getContractFactory("BidContract");
+  const bidContract = await bidContractFactory.deploy();
+  await bidContract.waitForDeployment();
+  console.log("Contract address: ", await bidContract.getAddress())
 
-  let waveCount;
-  waveCount = await waveContract.getTotalWaves();
-  // I couldn't console log for some reason
-  // console.log(waveCount.toNumber()); 
+  let bidCount;
+  bidCount = await bidContract.getTotalBids();
 
-  let waveTxn = await waveContract.wave("A message!");
-  await waveTxn.wait(); // Wait for the transaction to be mined
+  let bidTxn = await bidContract.bid("A message!");
+  await bidTxn.wait(); // Wait for the transaction to be mined
 
   const [_, randomPerson] = await hre.ethers.getSigners();
-  waveTxn = await waveContract.connect(randomPerson).wave("Another message!");
-  await waveTxn.wait(); // Wait for the transaction to be mined
+  bidTxn = await bidContract.connect(randomPerson).bid("Another message!");
+  await bidTxn.wait(); // Wait for the transaction to be mined
 
-  let allWaves = await waveContract.getAllWaves();
-  console.log(allWaves);
+  let allBids = await bidContract.getAllBids();
+  console.log(allBids);
+
+  let updatedBidCount;
+  updatedBidCount = await bidContract.getTotalBids();
 };
   
   const runMain = async () => {
