@@ -122,7 +122,7 @@ const App = () => {
       if (ethereum) {
         const provider = new ethers.providers.Web3Provider(ethereum); // Changed after update
         const signer = provider.getSigner();
-        const bidContract = new ethers.Contract(contractAddress, contractABI, signer);//something wrong with one of these variables
+        const bidContract = new ethers.Contract(contractAddress, contractABI, signer);
         let count = await bidContract.getTotalBids();
         console.log("Retrieved total bid count...", count.toNumber());
 
@@ -149,12 +149,6 @@ const App = () => {
    * This runs our function when the page loads.
    * More technically, when the App component "mounts".
    */
-  // useEffect(async () => {
-  //   const account = await findMetaMaskAccount();
-  //   if (account !== null) {
-  //     setCurrentAccount(account);
-  //   }
-  // }, []);
   useEffect(() => {
     const fetchAccount = async () => {
       const account = await findMetaMaskAccount();
