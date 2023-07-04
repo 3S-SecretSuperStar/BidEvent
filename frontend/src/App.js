@@ -1,23 +1,24 @@
-// import * as React from "react";
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import './App.css';
 import abi from "./utils/BidContract.json";
 import devconnect from "./devconnect.png";
+import truncateEthAddress from 'truncate-eth-address'
 
+// Fxn that retrieves the ethereum object that MetaMask injected
+// in the window (current tab)
 const getEthereumObject = () => window.ethereum;
 
 /*
- * This function returns the first linked account found.
+ * Fxn returns the first linked account found.
  * If there is no account linked, it will return null.
+ * Used in useEffect.
  */
 const findMetaMaskAccount = async () => {
   try {
     const ethereum = getEthereumObject();
 
-    /*
-    * First make sure we have access to the Ethereum object.
-    */
+    // First make sure we have access to the Ethereum object
     if (!ethereum) {
       console.error("Make sure you have Metamask!");
       return null;
@@ -44,14 +45,15 @@ const App = () => {
 
   const [currentAccount, setCurrentAccount] = useState("");
   const [message, setMessage] = useState("");
-
   const [allBids, setAllBids] = useState([]);
+
   const contractAddress = "0x7D4fF8648F1C58661BAa36EC5cb5E82386040921";
 
   const contractABI = abi.abi;
 
   /*
    * Create a method that gets all bids from your contract
+   * Only used when user's wallet is connected + authorized
    */
   const getAllBids = async () => {
     try {
@@ -61,8 +63,11 @@ const App = () => {
         const signer = provider.getSigner();
         const bidContract = new ethers.Contract(contractAddress, contractABI, signer);
 
-        // Call getAllBids method from smart contract
+        // Call getAllBids method from smart contract to retrieve all the bids
+        // This is why above signing is needed^ since data is on chain
         const bids = await bidContract.getAllBids();
+
+        console.log("Bids:", bids);
 
         /*
          * We only need address, timestamp, and message in our UI so let's
@@ -103,7 +108,8 @@ const App = () => {
 
       console.log("Connected", accounts[0]);
       setCurrentAccount(accounts[0]);
-
+      
+      // Only show all bids if user's wallet is connected + authorized
       await getAllBids();
     } catch (error) {
       console.error(error);
@@ -115,7 +121,6 @@ const App = () => {
   };
 
   const bid = async () => {
-    console.log(message);
     try {
       const { ethereum } = window;
 
@@ -129,7 +134,7 @@ const App = () => {
         /*
         * Execute the actual bid from your smart contract
         */
-        const bidTxn = await bidContract.bid("Sample message!");
+        const bidTxn = await bidContract.bid(message);
         console.log("Mining...", bidTxn.hash);
 
         await bidTxn.wait();
@@ -156,11 +161,37 @@ const App = () => {
         setCurrentAccount(account);
       }
     };
-  
+
     fetchAccount();
   }, []);
 
   return (
+    <div className="navBar">
+      <div className="button-container">
+        <div className="left">
+        👋 BidBuddy
+        </div>
+        <span className="truncate-address">
+            {truncateEthAddress(currentAccount)}
+        </span>
+
+        {/*
+         * If there is no currentAccount render this button
+         */}
+        {!currentAccount && (
+          <button className="button-33" role="button" onClick={connectWallet}>
+            Connect Wallet
+          </button>
+        )}  
+
+      </div>
+
+      <div className="tagline-container">
+      <div className="tagline">
+        Cheap tickets to the hottest crypto events around the world 🤑
+      </div>
+      </div>
+      
     <div className="mainContainer">
 
       <div className="dataContainer">
@@ -187,24 +218,18 @@ const App = () => {
           </button>
         </div>
 
-        {/*
-         * If there is no currentAccount render this button
-         */}
-        {!currentAccount && (
-          <button className="bidButton" onClick={connectWallet}>
-            Connect Wallet
-          </button>
-        )}     
+           
       
         {allBids.map((bid, index) => {
           return (
-            <div key={index} style={{ backgroundColor: "OldLace", marginTop: "16px", padding: "8px" }}>
-              <div>Address: {bid.address}</div>
+            <div key={index} style={{ backgroundColor: "lightBlue", marginTop: "16px", padding: "8px" }}>
+              <div>Address: {truncateEthAddress(bid.address)}</div>
               <div>Time: {bid.timestamp.toString()}</div>
               <div>Message: {bid.message}</div>
             </div>)
         })}
       </div>
+    </div>
     </div>
   );
 };

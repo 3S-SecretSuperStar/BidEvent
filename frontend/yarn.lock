@@ -9289,6 +9289,11 @@ tr46@^2.1.0:
   dependencies:
     punycode "^2.1.1"
 
+truncate-eth-address@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/truncate-eth-address/-/truncate-eth-address-1.0.2.tgz"
+  integrity sha512-MLGSzEIDam9XdBQejtCpQfdbgXfYTEkQseqpz+Pcqu6SEvvVC4mYniWFp4n8VG+KOi6jYVtUfA6cqWecSvS3rw==
+
 tryer@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/tryer/-/tryer-1.0.1.tgz"
