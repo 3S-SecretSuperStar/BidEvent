@@ -41,6 +41,7 @@ const findMetaMaskAccount = async () => {
   }
 };
 
+
 const App = () => {
 
   const [currentAccount, setCurrentAccount] = useState("");
@@ -86,6 +87,17 @@ const App = () => {
          * Store our data in React State
          */
         setAllBids(bidsCleaned);
+
+        bidContract.on("NewBid", (from, timestamp, message) => {
+          console.log("NewBid", from, timestamp, message);
+
+          setAllBids(prevState => [...prevState, {
+            address: from,
+            timestamp: new Date(timestamp * 1000),
+            message: message
+          }]);
+        });
+
       } else {
         console.log("Ethereum object doesn't exist!")
       }
@@ -93,6 +105,7 @@ const App = () => {
       console.log(error);
     }
   }
+
 
   const connectWallet = async () => {
     try {
@@ -116,9 +129,11 @@ const App = () => {
     }
   };
 
+
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
   };
+
 
   const bid = async () => {
     try {
@@ -150,6 +165,7 @@ const App = () => {
     }
   }
 
+
   /*
    * This runs our function when the page loads.
    * More technically, when the App component "mounts".
@@ -160,10 +176,12 @@ const App = () => {
       if (account !== null) {
         setCurrentAccount(account);
       }
+      await getAllBids();
     };
 
     fetchAccount();
   }, []);
+
 
   return (
     <div className="navBar">
