@@ -189,7 +189,7 @@ const App = () => {
         <div className="navbar-title">
         👋 BidBuddy
         </div>
-        <span className="truncated-address">
+        <span className="navbar-address">
             {truncateEthAddress(currentAccount)}
         </span>
 
@@ -205,7 +205,7 @@ const App = () => {
 
       <div className="tagline-container">
       <div className="tagline">
-        Cheap tickets to the hottest crypto events around the world 🤑
+        Cheap tickets to the hottest crypto events around the world
       </div>
       </div>
       
