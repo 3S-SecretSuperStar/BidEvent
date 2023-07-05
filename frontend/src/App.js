@@ -204,8 +204,16 @@ const App = () => {
       </div>
 
       <div className="tagline-container">
-      <div className="tagline">
-        Cheap tickets to the hottest crypto events around the world
+      <div>
+        <div className="tagline">
+          Cheap tickets to the best crypto events around the world
+        </div>
+        <div className="tagline1">
+          A safe, transparent, and secure bidding marketplace powered by the blockchain. Join <b>15,000+</b> crypto natives finding the best deals.
+        </div>
+        <div className="explore-button-container">
+          <button class="explore-button" role="button">Explore</button>
+        </div>
       </div>
       </div>
       
