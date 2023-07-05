@@ -184,12 +184,12 @@ const App = () => {
 
 
   return (
-    <div className="navBar">
-      <div className="button-container">
-        <div className="left">
+    <div className="entire-page">
+      <div className="navbar">
+        <div className="navbar-title">
         👋 BidBuddy
         </div>
-        <span className="truncate-address">
+        <span className="truncated-address">
             {truncateEthAddress(currentAccount)}
         </span>
 
@@ -197,11 +197,10 @@ const App = () => {
          * If there is no currentAccount render this button
          */}
         {!currentAccount && (
-          <button className="button-33" role="button" onClick={connectWallet}>
+          <button className="connect-wallet" role="button" onClick={connectWallet}>
             Connect Wallet
           </button>
         )}  
-
       </div>
 
       <div className="tagline-container">
@@ -236,7 +235,13 @@ const App = () => {
           </button>
         </div>
 
-           
+        <div className="header">
+        Latest bids
+        </div>
+
+        <div className="bio">
+        Connect wallet to view
+        </div>
       
         {allBids.map((bid, index) => {
           return (

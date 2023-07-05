@@ -5,7 +5,7 @@
   justify-content: center;
   width: 100%;
   margin-top: 64px;
-  /* background-color: lightblue; */
+  /* background-color: red; */
 }
 
 .dataContainer {
@@ -55,7 +55,7 @@
   /* vertical-align: top; */
 }
 
-.navBar {
+.entire-page {
   overflow: hidden;
   /* background: linear-gradient(-45deg, #3255ef, #13cbd2, #3255ef, #13cbd2); */
 	/* background-size: 400% 400%; */
@@ -75,23 +75,36 @@
 	}
 } */
 
-.button-container {
-  /* text-align: right; */
-  margin-right: 50px; 
+.navbar {
+  /* margin-right: 50px; 
   margin-top: 20px;
-  margin-left: 50px;
-  /* background-color: blueviolet; */
+  margin-left: 50px; */
+  /* background-color: black; */
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
 
+.navbar-title {
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.truncated-address {
+  font-weight: bold;
+  margin-right: 30px;
+  color: black;
 }
 
 /* CSS */
-.button-33 {
+.connect-wallet {
   background-color: #0f2589;
   border-radius: 100px;
-  box-shadow: rgba(46, 185, 235, 0.2) 0 -25px 18px -14px inset,rgba(46, 185, 235, 0.2) 0 1px 2px,rgba(46, 185, 235, 0.2) 0 2px 4px,rgba(46, 185, 235, 0.2) 0 4px 8px,rgba(46, 185, 235, 0.2) 0 8px 16px,rgba(46, 185, 235, 0.2) 0 16px 32px;
+  /* box-shadow: rgba(46, 185, 235, 0.2) 0 -25px 18px -14px inset,rgba(46, 185, 235, 0.2) 0 1px 2px,rgba(46, 185, 235, 0.2) 0 2px 4px,rgba(46, 185, 235, 0.2) 0 4px 8px,rgba(46, 185, 235, 0.2) 0 8px 16px,rgba(46, 185, 235, 0.2) 0 16px 32px; */
   color: white;
   cursor: pointer;
   display: inline-block;
@@ -106,21 +119,18 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   font-weight: bold;
+  margin-right: 30px;
 }
 
 .button-33:hover {
-  box-shadow: rgba(46, 185, 235, 0.2) 0 -25px 18px -14px inset,rgba(46, 185, 235, 0.2) 0 1px 2px,rgba(46, 185, 235, 0.2) 0 2px 4px,rgba(46, 185, 235, 0.2) 0 4px 8px,rgba(46, 185, 235, 0.2) 0 8px 16px,rgba(46, 185, 235, 0.2) 0 16px 32px;
+  /* box-shadow: rgba(46, 185, 235, 0.2) 0 -25px 18px -14px inset,rgba(46, 185, 235, 0.2) 0 1px 2px,rgba(46, 185, 235, 0.2) 0 2px 4px,rgba(46, 185, 235, 0.2) 0 4px 8px,rgba(46, 185, 235, 0.2) 0 8px 16px,rgba(46, 185, 235, 0.2) 0 16px 32px; */
   transform: scale(1.05) rotate(-1deg);
-}
-
-.truncate-address {
-  font-weight: bold;
 }
 
 .tagline {
   font-size: 48px;
   text-align: center;
-  color: darkblue;
+  color: black;
   /* background-color: #000000; */
   padding: 30px;
   border-radius: 10px;
@@ -138,7 +148,3 @@
   font-family: Arial, sans-serif;
 }
 
-.left {
-  font-weight: bold;
-  font-size: 25px;
-}
