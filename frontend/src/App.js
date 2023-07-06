@@ -121,7 +121,7 @@ const App = () => {
 
       console.log("Connected", accounts[0]);
       setCurrentAccount(accounts[0]);
-      
+
       // Only show all bids if user's wallet is connected + authorized
       await getAllBids();
     } catch (error) {
@@ -187,10 +187,10 @@ const App = () => {
     <div className="entire-page">
       <div className="navbar">
         <div className="navbar-title">
-        👋 BidBuddy
+          👋 BidBuddy
         </div>
         <span className="navbar-address">
-            {truncateEthAddress(currentAccount)}
+          {truncateEthAddress(currentAccount)}
         </span>
 
         {/*
@@ -200,67 +200,91 @@ const App = () => {
           <button className="connect-wallet" role="button" onClick={connectWallet}>
             Connect Wallet
           </button>
-        )}  
+        )}
       </div>
 
       <div className="tagline-container">
-      <div>
-        <div className="tagline">
-          Cheap tickets to the best crypto events around the world
-        </div>
-        <div className="tagline1">
-          A safe, transparent, and secure bidding marketplace powered by the blockchain. Join <b>15,000+</b> crypto natives finding the best deals.
-        </div>
-        <div className="explore-button-container">
-          <button class="explore-button" role="button">Explore</button>
+        <div className="test">
+          <div className="tagline">
+            Cheap tickets to the best crypto events around the world
+          </div>
+          <div className="tagline1">
+            A safe, transparent, and secure bidding marketplace powered by the blockchain. Join <b>15,000+</b> crypto natives finding the best deals.
+          </div>
+          <div className="explore-button-container">
+            <button class="explore-button" role="button">Explore</button>
+          </div>
+
+          <div >
+            <div >
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+            </div>
+
+            <div >
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+              <img src={devconnect} />
+            </div>
+          </div>
         </div>
       </div>
+
+      <div className="mainContainer">
+
+        <div className="dataContainer">
+          <div className="header">
+            ✋ BidBuddy
+          </div>
+
+          <div className="bio">
+            Connect your ETH wallet and bid for a ticket to Devconnect 2023!
+          </div>
+
+          <div className="inputContainer">
+
+            <img src={devconnect} style={{ borderRadius: '2%' }} />
+            <textarea
+              type="text"
+              className="messageInput"
+              onChange={handleMessageChange}
+              placeholder="Enter an optional message here :)"
+            />
+
+            <button className="bidButton" onClick={bid}>
+              Place a bid
+            </button>
+          </div>
+
+          <div className="header">
+            Latest bids
+          </div>
+
+          <div className="bio">
+            Connect wallet to view
+          </div>
+
+          {allBids.map((bid, index) => {
+            return (
+              <div key={index} style={{ backgroundColor: "lightBlue", marginTop: "16px", padding: "8px" }}>
+                <div>Address: {truncateEthAddress(bid.address)}</div>
+                <div>Time: {bid.timestamp.toString()}</div>
+                <div>Message: {bid.message}</div>
+              </div>)
+          })}
+        </div>
       </div>
-      
-    <div className="mainContainer">
-
-      <div className="dataContainer">
-        <div className="header">
-        ✋ BidBuddy
-        </div>
-
-        <div className="bio">
-          Connect your ETH wallet and bid for a ticket to Devconnect 2023!
-        </div>
-
-        <div className="inputContainer">
-
-          <img src={devconnect} style={{ borderRadius: '2%' }}/>
-          <textarea
-            type="text"
-            className="messageInput"
-            onChange={handleMessageChange}
-            placeholder="Enter an optional message here :)"
-          />
-
-          <button className="bidButton" onClick={bid}>
-            Place a bid
-          </button>
-        </div>
-
-        <div className="header">
-        Latest bids
-        </div>
-
-        <div className="bio">
-        Connect wallet to view
-        </div>
-      
-        {allBids.map((bid, index) => {
-          return (
-            <div key={index} style={{ backgroundColor: "lightBlue", marginTop: "16px", padding: "8px" }}>
-              <div>Address: {truncateEthAddress(bid.address)}</div>
-              <div>Time: {bid.timestamp.toString()}</div>
-              <div>Message: {bid.message}</div>
-            </div>)
-        })}
-      </div>
-    </div>
     </div>
   );
 };
