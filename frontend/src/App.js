@@ -192,7 +192,7 @@ const App = () => {
 
 
   return (
-    <div className="entire-page">
+    <div className="landing-page">
       <div className="navbar">
         <div className="navbar-title">
           👋 BidBuddy
@@ -211,19 +211,19 @@ const App = () => {
         )}
       </div>
 
-      <div className="tagline-container">
-        <div className="tagline">
+      <div className="landing-page-container">
+        <div className="headline">
           Cheap tickets to the best crypto events around the world
         </div>
-        <div className="tagline1">
+        <div className="headline-description">
           A safe, transparent, and secure bidding marketplace powered by the blockchain. Join <b>15,000+</b> crypto natives finding the best deals.
         </div>
         <div className="explore-button-container">
           <button class="explore-button" role="button">Explore</button>
         </div>
 
-        <div className="logos">
-          <div className="logos-slide">
+        <div className="logo-carousel">
+          <div className="logo-carousel-slide">
             <img src={consensus} />
             <img src={bfc} />
             <img src={nftnyc} />
@@ -234,7 +234,7 @@ const App = () => {
             <img src={tbw} />
           </div>
 
-          <div className="logos-slide">
+          <div className="logo-carousel-slide">
             <img src={consensus} />
             <img src={bfc} />
             <img src={nftnyc} />

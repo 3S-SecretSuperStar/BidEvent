@@ -1,3 +1,8 @@
+.landing-page {
+  background: radial-gradient(#6e108a, #0b0344);
+  height: 100vh;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -14,10 +19,168 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.connect-wallet {
+  background-color: white;
+  border-radius: 100px;
+  color: #0f2589;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-weight: bold;
+  margin-right: 30px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.connect-wallet:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
 .navbar-address {
   font-weight: bold;
   margin-right: 30px;
   color: white;
+}
+
+.landing-page-container {
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.headline {
+  font-size: 48px;
+  text-align: center;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+
+.headline-description {
+  font-size: 25px;
+  text-align: center;
+  margin: 0 auto; 
+  color: white;
+  max-width: 900px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.explore-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.explore-button {
+  background-color: white;
+  border: 2px solid #000000;
+  border-radius: 30px;
+  box-shadow: #000000 4px 4px 0 0;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.explore-button:hover {
+  background-color: #e1c3ff;
+}
+
+.explore-button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+.logo-carousel {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  margin-top: 200px;
+}
+
+.logo-carousel:before,
+.logo-carousel:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logo-carousel:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(28, 0, 71));
+}
+
+.logo-carousel:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(28, 0, 71));
+}
+
+.logo-carousel:hover .logo-carousel-slide {
+  animation-play-state: paused;
+}
+
+.logo-carousel-slide {
+  display: inline-block;
+  animation: 40s slide infinite linear;
+}
+
+.logo-carousel-slide img {
+  height: 50px;
+  margin: 0 40px;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 64px;
+  background-color: white;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
 .dataContainer {
@@ -61,163 +224,4 @@
   border-radius: 10px;
   border-width: 1px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-/* CSS */
-.connect-wallet {
-  background-color: white;
-  border-radius: 100px;
-  color: #0f2589;
-  cursor: pointer;
-  display: inline-block;
-  padding: 7px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  font-weight: bold;
-  margin-right: 30px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-}
-
-.connect-wallet:hover {
-  transform: scale(1.05) rotate(-1deg);
-}
-
-.tagline {
-  font-size: 48px;
-  text-align: center;
-  color: white;
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: bold;
-}
-
-.tagline1 {
-  font-size: 25px;
-  text-align: center;
-  margin: 0 auto; 
-  color: white;
-  max-width: 900px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.tagline-container {
-  justify-content: center;
-  margin-top: 100px;
-}
-
-.entire-page {
-  background: radial-gradient(#6e108a, #0b0344);
-  height: 100vh;
-}
-
-.mainContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 64px;
-  background-color: white;
-  padding: 16px;
-  box-sizing: border-box;
-}
-
-.explore-button {
-  background-color: white;
-  border: 2px solid #000000;
-  border-radius: 30px;
-  box-shadow: #000000 4px 4px 0 0;
-  color: #000000;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: bold;
-  font-size: 25px;
-  padding: 0 18px;
-  line-height: 50px;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.explore-button:hover {
-  background-color: #e1c3ff;
-}
-
-.explore-button:active {
-  box-shadow: #422800 2px 2px 0 0;
-  transform: translate(2px, 2px);
-}
-
-@media (min-width: 768px) {
-  .explore-button {
-    min-width: 120px;
-    padding: 0 25px;
-  }
-}
-
-.explore-button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.logos {
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-  margin-top: 200px;
-}
-
-.logos:before,
-.logos:after {
-  position: absolute;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  content: "";
-  z-index: 2;
-}
-
-.logos:before {
-  left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(28, 0, 71));
-}
-
-.logos:after {
-  right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(28, 0, 71));
-}
-
-.logos:hover .logos-slide {
-  animation-play-state: paused;
-}
-
-.logos-slide {
-  display: inline-block;
-  animation: 40s slide infinite linear;
-}
-
-.logos-slide img {
-  height: 50px;
-  margin: 0 40px;
 }
