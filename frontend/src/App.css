@@ -20,26 +20,16 @@
   color: white;
 }
 
-/* .mainContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 64px;
-  background-color: red;
-} */
-
 .dataContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
-  /* background-color: lightcoral; */
 }
 
 .header {
   text-align: center;
   font-size: 32px;
-  /* font-weight: 600; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -60,7 +50,6 @@
 .inputContainer {
   display: flex;
   flex-direction: column;
-  /* background-color: aqua; */
   margin-top: 15px;
 }
 
@@ -72,27 +61,15 @@
   border-radius: 10px;
   border-width: 1px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  /* vertical-align: top; */
 }
-
-/* .entire-page {
-  overflow: hidden;
-  background: radial-gradient(#761194, #0b0344);
-  background: linear-gradient(-45deg, #3255ef, #13cbd2, #3255ef, #13cbd2);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
-} */
 
 /* CSS */
 .connect-wallet {
   background-color: white;
   border-radius: 100px;
-  /* box-shadow: rgba(46, 185, 235, 0.2) 0 -25px 18px -14px inset,rgba(46, 185, 235, 0.2) 0 1px 2px,rgba(46, 185, 235, 0.2) 0 2px 4px,rgba(46, 185, 235, 0.2) 0 4px 8px,rgba(46, 185, 235, 0.2) 0 8px 16px,rgba(46, 185, 235, 0.2) 0 16px 32px; */
   color: #0f2589;
   cursor: pointer;
   display: inline-block;
-  /* font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif; */
   padding: 7px 20px;
   text-align: center;
   text-decoration: none;
@@ -109,7 +86,6 @@
 }
 
 .connect-wallet:hover {
-  /* box-shadow: rgba(46, 185, 235, 0.2) 0 -25px 18px -14px inset,rgba(46, 185, 235, 0.2) 0 1px 2px,rgba(46, 185, 235, 0.2) 0 2px 4px,rgba(46, 185, 235, 0.2) 0 4px 8px,rgba(46, 185, 235, 0.2) 0 8px 16px,rgba(46, 185, 235, 0.2) 0 16px 32px; */
   transform: scale(1.05) rotate(-1deg);
 }
 
@@ -135,21 +111,13 @@
 }
 
 .tagline-container {
-  /* overflow: hidden; */
-  /* display: flex; */
   justify-content: center;
-  /* height: 100vh; */
-  /* margin: 0; */
   margin-top: 100px;
-  /* font-family: Arial, sans-serif; */
-  /* background-color: red; */
 }
 
 .entire-page {
-  /* overflow: hidden; */
   background: radial-gradient(#6e108a, #0b0344);
   height: 100vh;
-  /* background-size: 400% 400%; */
 }
 
 .mainContainer {
@@ -184,7 +152,6 @@
 
 .explore-button:hover {
   background-color: #e1c3ff;
-  /* color: white; */
 }
 
 .explore-button:active {
@@ -204,10 +171,6 @@
   justify-content: center;
   margin-top: 50px;
 }
-
-/* .test {
-  margin-top: 100px;
-} */
 
 @keyframes slide {
   from {

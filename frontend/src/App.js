@@ -212,41 +212,39 @@ const App = () => {
       </div>
 
       <div className="tagline-container">
-        {/* <div className="test"> */}
-          <div className="tagline">
-            Cheap tickets to the best crypto events around the world
-          </div>
-          <div className="tagline1">
-            A safe, transparent, and secure bidding marketplace powered by the blockchain. Join <b>15,000+</b> crypto natives finding the best deals.
-          </div>
-          <div className="explore-button-container">
-            <button class="explore-button" role="button">Explore</button>
+        <div className="tagline">
+          Cheap tickets to the best crypto events around the world
+        </div>
+        <div className="tagline1">
+          A safe, transparent, and secure bidding marketplace powered by the blockchain. Join <b>15,000+</b> crypto natives finding the best deals.
+        </div>
+        <div className="explore-button-container">
+          <button class="explore-button" role="button">Explore</button>
+        </div>
+
+        <div className="logos">
+          <div className="logos-slide">
+            <img src={consensus} />
+            <img src={bfc} />
+            <img src={nftnyc} />
+            <img src={btc} />
+            <img style={{ filter: 'brightness(0) invert(1)' }} src={collision} />
+            <img src={mainnet} />
+            <img src={edcon} />
+            <img src={tbw} />
           </div>
 
-          <div className="logos">
-            <div className="logos-slide">
-              <img src={consensus} />
-              <img src={bfc} />
-              <img src={nftnyc} />
-              <img src={btc} />
-              <img style={{ filter: 'brightness(0) invert(1)' }} src={collision} />
-              <img src={mainnet} />
-              <img src={edcon} />
-              <img src={tbw} />
-            </div>
-
-            <div className="logos-slide">
-              <img src={consensus} />
-              <img src={bfc} />
-              <img src={nftnyc} />
-              <img src={btc} />
-              <img style={{ filter: 'brightness(0) invert(1)' }} src={collision} />
-              <img src={mainnet} />
-              <img src={edcon} />
-              <img src={tbw} />
-            </div>
+          <div className="logos-slide">
+            <img src={consensus} />
+            <img src={bfc} />
+            <img src={nftnyc} />
+            <img src={btc} />
+            <img style={{ filter: 'brightness(0) invert(1)' }} src={collision} />
+            <img src={mainnet} />
+            <img src={edcon} />
+            <img src={tbw} />
           </div>
-        {/* </div> */}
+        </div>
       </div>
 
       <div className="mainContainer">
