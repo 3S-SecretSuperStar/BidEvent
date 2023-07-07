@@ -135,6 +135,7 @@
 }
 
 .tagline-container {
+  overflow: hidden;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -205,6 +206,63 @@
 
 .test {
   margin-top: 100px;
-  justify-content: center;
+}
+
+
+
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  /* background: white; */
+  white-space: nowrap;
+  position: relative;
+  margin-top: 200px;
+
+  /* margin: 0; */
+  /* padding: 0; */
+  /* box-sizing: border-box; */
+}
+
+/* .logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+} */
+
+/* .logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(17, 0, 255));
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(30, 0, 255));
+} */
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 40s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 50px;
+  margin: 0 40px;
 }
 

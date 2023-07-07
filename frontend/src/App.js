@@ -215,8 +215,8 @@ const App = () => {
             <button class="explore-button" role="button">Explore</button>
           </div>
 
-          <div >
-            <div >
+          <div className="logos">
+            <div className="logos-slide">
               <img src={devconnect} />
               <img src={devconnect} />
               <img src={devconnect} />
@@ -227,7 +227,7 @@ const App = () => {
               <img src={devconnect} />
             </div>
 
-            <div >
+            <div className="logos-slide">
               <img src={devconnect} />
               <img src={devconnect} />
               <img src={devconnect} />
@@ -238,6 +238,30 @@ const App = () => {
               <img src={devconnect} />
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="logos">
+        <div className="logos-slide">
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+        </div>
+
+        <div className="logos-slide">
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
+          <img src={devconnect} />
         </div>
       </div>
 
