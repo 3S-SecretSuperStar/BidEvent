@@ -138,8 +138,9 @@
   /* overflow: hidden; */
   /* display: flex; */
   justify-content: center;
-  height: 100vh;
-  margin: 0;
+  /* height: 100vh; */
+  /* margin: 0; */
+  margin-top: 100px;
   /* font-family: Arial, sans-serif; */
   /* background-color: red; */
 }
@@ -204,12 +205,9 @@
   margin-top: 50px;
 }
 
-.test {
+/* .test {
   margin-top: 100px;
-}
-
-
-
+} */
 
 @keyframes slide {
   from {
@@ -222,14 +220,9 @@
 
 .logos {
   overflow: hidden;
-  /* background: white; */
   white-space: nowrap;
   position: relative;
   margin-top: 200px;
-
-  /* margin: 0; */
-  /* padding: 0; */
-  /* box-sizing: border-box; */
 }
 
 .logos:before,
@@ -265,4 +258,3 @@
   height: 50px;
   margin: 0 40px;
 }
-

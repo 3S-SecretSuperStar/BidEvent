@@ -212,7 +212,7 @@ const App = () => {
       </div>
 
       <div className="tagline-container">
-        <div className="test">
+        {/* <div className="test"> */}
           <div className="tagline">
             Cheap tickets to the best crypto events around the world
           </div>
@@ -246,7 +246,7 @@ const App = () => {
               <img src={tbw} />
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </div>
 
       <div className="mainContainer">
