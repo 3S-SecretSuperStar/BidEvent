@@ -3,6 +3,14 @@ import { ethers } from "ethers";
 import './App.css';
 import abi from "./utils/BidContract.json";
 import devconnect from "./devconnect.png";
+import consensus from "./consensus-logo.svg";
+import bfc from "./bfc.png";
+import btc from "./btc.svg";
+import nftnyc from "./nftnyc.svg";
+import mainnet from "./mainnet.webp";
+import collision from "./collision.avif";
+import edcon from "./edcon.png";
+import tbw from "./tbw.png";
 import truncateEthAddress from 'truncate-eth-address'
 
 // Fxn that retrieves the ethereum object that MetaMask injected
@@ -217,51 +225,27 @@ const App = () => {
 
           <div className="logos">
             <div className="logos-slide">
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
+              <img src={consensus} />
+              <img src={bfc} />
+              <img src={nftnyc} />
+              <img src={btc} />
+              <img style={{ filter: 'brightness(0) invert(1)' }} src={collision} />
+              <img src={mainnet} />
+              <img src={edcon} />
+              <img src={tbw} />
             </div>
 
             <div className="logos-slide">
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
-              <img src={devconnect} />
+              <img src={consensus} />
+              <img src={bfc} />
+              <img src={nftnyc} />
+              <img src={btc} />
+              <img style={{ filter: 'brightness(0) invert(1)' }} src={collision} />
+              <img src={mainnet} />
+              <img src={edcon} />
+              <img src={tbw} />
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="logos">
-        <div className="logos-slide">
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-        </div>
-
-        <div className="logos-slide">
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
-          <img src={devconnect} />
         </div>
       </div>
 
