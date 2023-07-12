@@ -11,7 +11,8 @@ import mainnet from "./mainnet.webp";
 import collision from "./collision.avif";
 import edcon from "./edcon.png";
 import tbw from "./tbw.png";
-import truncateEthAddress from 'truncate-eth-address'
+import truncateEthAddress from 'truncate-eth-address';
+import { CCard, CCardImage, CCardBody, CCardTitle, CCardText, CButton } from '@coreui/react';
 
 // Fxn that retrieves the ethereum object that MetaMask injected
 // in the window (current tab)
@@ -192,62 +193,75 @@ const App = () => {
 
 
   return (
-    <div className="landing-page">
-      <div className="navbar">
-        <div className="navbar-title">
-          👋 BidBuddy
-        </div>
-        <span className="navbar-address">
-          {truncateEthAddress(currentAccount)}
-        </span>
+    <div>
+      <div className="landing-page">
+        <div className="navbar">
+          <div className="navbar-title">
+            👋 BidBuddy
+          </div>
+          <span className="navbar-address">
+            {truncateEthAddress(currentAccount)}
+          </span>
 
-        {/*
+          {/*
          * If there is no currentAccount render this button
          */}
-        {!currentAccount && (
-          <button className="connect-wallet" role="button" onClick={connectWallet}>
-            Connect Wallet
-          </button>
-        )}
-      </div>
-
-      <div className="landing-page-container">
-        <div className="headline">
-          Cheap tickets to the best crypto events around the world
-        </div>
-        <div className="headline-description">
-          A safe, transparent, and secure bidding marketplace powered by the blockchain. Join <b>15,000+</b> crypto natives finding the best deals.
-        </div>
-        <div className="explore-button-container">
-          <button class="explore-button" role="button">Explore</button>
+          {!currentAccount && (
+            <button className="connect-wallet" role="button" onClick={connectWallet}>
+              Connect Wallet
+            </button>
+          )}
         </div>
 
-        <div className="logo-carousel">
-          <div className="logo-carousel-slide">
-            <img src={consensus} />
-            <img src={bfc} />
-            <img src={nftnyc} />
-            <img src={btc} />
-            <img style={{ filter: 'brightness(0) invert(1)' }} src={collision} />
-            <img src={mainnet} />
-            <img src={edcon} />
-            <img src={tbw} />
+        <div className="landing-page-container">
+          <div className="headline">
+            Cheap tickets to the best crypto events around the world
+          </div>
+          <div className="headline-description">
+            A safe, transparent, and secure bidding marketplace powered by the blockchain. Join <b>15,000+</b> crypto natives finding the best deals.
+          </div>
+          <div className="explore-button-container">
+            <button class="explore-button" role="button">Explore</button>
           </div>
 
-          <div className="logo-carousel-slide">
-            <img src={consensus} />
-            <img src={bfc} />
-            <img src={nftnyc} />
-            <img src={btc} />
-            <img style={{ filter: 'brightness(0) invert(1)' }} src={collision} />
-            <img src={mainnet} />
-            <img src={edcon} />
-            <img src={tbw} />
+          <div className="logo-carousel">
+            <div className="logo-carousel-slide">
+              <img src={consensus} />
+              <img src={bfc} />
+              <img src={nftnyc} />
+              <img src={btc} />
+              <img style={{ filter: 'brightness(0) invert(1)' }} src={collision} />
+              <img src={mainnet} />
+              <img src={edcon} />
+              <img src={tbw} />
+            </div>
+
+            <div className="logo-carousel-slide">
+              <img src={consensus} />
+              <img src={bfc} />
+              <img src={nftnyc} />
+              <img src={btc} />
+              <img style={{ filter: 'brightness(0) invert(1)' }} src={collision} />
+              <img src={mainnet} />
+              <img src={edcon} />
+              <img src={tbw} />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="mainContainer">
+      <div className="upcoming-events">
+        Upcoming events
+      </div>
+
+    </div>
+  );
+};
+
+export default App;
+
+/*
+<div className="mainContainer">
 
         <div className="dataContainer">
           <div className="header">
@@ -291,8 +305,4 @@ const App = () => {
           })}
         </div>
       </div>
-    </div>
-  );
-};
-
-export default App;
+*/
