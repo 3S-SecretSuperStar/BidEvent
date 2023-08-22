@@ -1,6 +1,11 @@
 # ✋ BidBuddy (HackFS 2023)
-<img src="https://github.com/MattWong-ca/wave-eth-dapp/blob/main/BidBuddyScreenshot.png">
+### Landing page:
+<img width="1440" alt="BidBuddy Cover" src="https://github.com/MattWong-ca/wave-eth-dapp/assets/66754344/e824474d-b74a-4c3f-92c5-62c0ca27be8e">
 
+### Landing page (2):
+<img width="1440" alt="BidBuddy Cover 2" src="https://github.com/MattWong-ca/wave-eth-dapp/assets/66754344/324bba7c-d869-4bdb-8f09-d56bc026ab3d">
+
+# Description
 BidBuddy provides a seamless and transparent experience for bidding on crypto event tickets. The platform allows users to connect their ETH wallets and participate in the bidding process for events like Devconnect 2023.
 
 With BidBuddy, users can easily access and bid for tickets through their connected ETH wallets. The entire bidding process, including the submission of bids and the associated messages, is securely stored on the blockchain, ensuring transparency, immutability, and trust.
@@ -18,3 +23,11 @@ Key Features:
 - Ticket Distribution: Once the bidding period concludes, BidBuddy automatically distributes tickets to the highest bidders based on predefined rules within the smart contract. This streamlined process eliminates the need for manual intervention and ensures a fair allocation of tickets.
 
 BidBuddy empowers users to participate in the exciting world of ticket bidding, offering a decentralized and transparent solution. By leveraging the Ethereum blockchain, the application provides a secure and trustworthy platform for bidding on exclusive events. Join BidBuddy today and embark on an immersive bidding experience like never before!
+
+# To Do 
+- Make mobile friendly
+- Fixed navbar
+- Animations
+- Use IPFS for storage
+
+When user clicks `PLACE BID`, a pop-up form should appear, giving them the ability to review the event and submit a bid.
