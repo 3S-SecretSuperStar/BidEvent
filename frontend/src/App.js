@@ -265,7 +265,8 @@ const App = () => {
           Upcoming events
         </div>
 
-        <Card sx={{ maxWidth: 345, marginLeft: '30px', marginTop: '30px' }}>
+        <div style={{ display: 'flex' }}>
+        <Card sx={{ maxWidth: 345, marginLeft: '30px', marginTop: '30px', marginBottom: '30px' }}>
           <CardMedia
             component="img"
             alt="devconnect"
@@ -286,6 +287,48 @@ const App = () => {
           </CardActions>
         </Card>
 
+        <Card sx={{ maxWidth: 345, marginLeft: '30px', marginTop: '30px', marginBottom: '30px' }}>
+          <CardMedia
+            component="img"
+            alt="devconnect"
+            height="140"
+            image={process.env.PUBLIC_URL + '/devconnect.png'}
+          />
+          <CardContent>
+            <Typography style={cardTitleStyle} gutterBottom variant="h5" component="div">
+              Devconnect | Nov 2023
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              A week-long gathering of independent Ethereum events to learn, share, and make progress together.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" sx={{ marginRight: '20px' }}>Place bid</Button>
+            <Button size="small" target="_blank" href="https://devconnect.org/">Learn More</Button>
+          </CardActions>
+        </Card>
+
+        <Card sx={{ maxWidth: 345, marginLeft: '30px', marginTop: '30px', marginBottom: '30px' }}>
+          <CardMedia
+            component="img"
+            alt="devconnect"
+            height="140"
+            image={process.env.PUBLIC_URL + '/devconnect.png'}
+          />
+          <CardContent>
+            <Typography style={cardTitleStyle} gutterBottom variant="h5" component="div">
+              Devconnect | Nov 2023
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              A week-long gathering of independent Ethereum events to learn, share, and make progress together.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" sx={{ marginRight: '20px' }}>Place bid</Button>
+            <Button size="small" target="_blank" href="https://devconnect.org/">Learn More</Button>
+          </CardActions>
+        </Card>
+        </div>
       </div>
 
     </div>
