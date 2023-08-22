@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import './App.css';
 import abi from "./utils/BidContract.json";
-import devconnect from "./devconnect.png";
 import consensus from "./consensus-logo.svg";
 import bfc from "./bfc.png";
 import btc from "./btc.svg";
@@ -12,7 +11,13 @@ import collision from "./collision.avif";
 import edcon from "./edcon.png";
 import tbw from "./tbw.png";
 import truncateEthAddress from 'truncate-eth-address';
-import { CCard, CCardImage, CCardBody, CCardTitle, CCardText, CButton } from '@coreui/react';
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 // Fxn that retrieves the ethereum object that MetaMask injected
 // in the window (current tab)
@@ -52,6 +57,10 @@ const findMetaMaskAccount = async () => {
 
 
 const App = () => {
+
+  const cardTitleStyle = {
+    fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+  };
 
   const [currentAccount, setCurrentAccount] = useState("");
   const [message, setMessage] = useState("");
@@ -250,8 +259,33 @@ const App = () => {
         </div>
       </div>
 
-      <div className="upcoming-events">
-        Upcoming events
+      <div>
+
+        <div className="upcoming-events">
+          Upcoming events
+        </div>
+
+        <Card sx={{ maxWidth: 345, marginLeft: '30px', marginTop: '30px' }}>
+          <CardMedia
+            component="img"
+            alt="devconnect"
+            height="140"
+            image={process.env.PUBLIC_URL + '/devconnect.png'}
+          />
+          <CardContent>
+            <Typography style={cardTitleStyle} gutterBottom variant="h5" component="div">
+              Devconnect | Nov 2023
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              A week-long gathering of independent Ethereum events to learn, share, and make progress together.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" sx={{ marginRight: '20px' }}>Place bid</Button>
+            <Button size="small" target="_blank" href="https://devconnect.org/">Learn More</Button>
+          </CardActions>
+        </Card>
+
       </div>
 
     </div>
@@ -264,13 +298,6 @@ export default App;
 <div className="mainContainer">
 
         <div className="dataContainer">
-          <div className="header">
-            ✋ BidBuddy
-          </div>
-
-          <div className="bio">
-            Connect your ETH wallet and bid for a ticket to Devconnect 2023!
-          </div>
 
           <div className="inputContainer">
 
