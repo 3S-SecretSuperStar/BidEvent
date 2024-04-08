@@ -1,10 +1,3 @@
-# ✋ BidBuddy (HackFS 2023)
-### Landing page:
-<img width="1440" alt="BidBuddy Cover" src="https://github.com/MattWong-ca/wave-eth-dapp/assets/66754344/e824474d-b74a-4c3f-92c5-62c0ca27be8e">
-
-### Landing page (2):
-<img width="1440" alt="BidBuddy Cover 2" src="https://github.com/MattWong-ca/wave-eth-dapp/assets/66754344/324bba7c-d869-4bdb-8f09-d56bc026ab3d">
-
 # Description
 BidBuddy provides a seamless and transparent experience for bidding on crypto event tickets. The platform allows users to connect their ETH wallets and participate in the bidding process for events like Devconnect 2023.
 
